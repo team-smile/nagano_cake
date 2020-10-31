@@ -1,20 +1,20 @@
-<body>
-  <div class="container">
-  <div class="row">
-    <div class="col-lg-3">
-      <%= render 'items/genre', item: @item %>
-    </div>
-      <div class="col-lg-9">
-        <div class="card-image">
-          <figure class="image">
-            <div class="item-image"><%= attachment_image_tag item, :image %></div>
-          </figure>
-        </div>
-        <p></p>
-        <%= form_with model: @item, url: item_path(item), local: true, do |f| %>
-          <%= f.select :amount, options_for_select((1..30).to_a), include_blank: "個数選択" %>
-          <%= f.submit "カートに入れる",  %>
-        <% end %>
-    </div>
-  </div>
-</body>
+<!--<body>-->
+<!--  <div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-lg-3">-->
+<!--      <%#= render 'items/genre', item: @item %>-->
+<!--    </div>-->
+<!--      <div class="col-lg-9">-->
+<!--        <div class="card-image">-->
+<!--          <figure class="image">-->
+<!--            <div class="item-image"><%#= attachment_image_tag item, :image %></div>-->
+<!--          </figure>-->
+<!--        </div>-->
+<!--        <p></p>-->
+<!--        <%#= form_with model: @item, url: item_path(item), local: true, do |f| %>-->
+<!--          <%#= f.select :amount, options_for_select((1..30).to_a), include_blank: "個数選択" %>-->
+<!--          <%#= f.submit "カートに入れる",  %>-->
+<!--        <%# end %>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</body>-->
