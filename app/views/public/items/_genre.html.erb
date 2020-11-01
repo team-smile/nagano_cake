@@ -1,13 +1,14 @@
-<!--<table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>ジャンル検索</th> -->
-<!--    </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--    <tr>-->
-<!--      <td>ケーキ</td>-->
-<!--      <td>焼き菓子</td>-->
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+<table>
+  <thead>
+    <tr>
+      <th>ジャンル検索</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @genres.each do |genre| %>
+        <td>genre</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
