@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       <% @items.each do |item| %>
-       
+       <div class="col-lg-3">
+         <%= render "items/genre", item: item
+       </div>
         <div class="col-lg-9">
           <div class="item-head"><b>商品一覧</b></div>
             <div class="item-count">（全#{item.count}件）</div>
