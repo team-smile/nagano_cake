@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  devise_for :admins
+  devise_for :admin, controllers: {
+        sessions: 'admin/sessions'
+  }
+    
   
   devise_scope :customers do
     get 'end_users/sign_up' => 'registrations#new'
@@ -29,7 +32,6 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    get "admin" => "admin#homes"
     resources :items, except: [:destroy]
     resources :genres, except: [:new, :show, :destroy]
     resources :end_users, except: [:new, :create, :destroy]
@@ -37,4 +39,7 @@ Rails.application.routes.draw do
       patch "order_details/:id" => "order_details#update"
     end
   end
+  
+  get "admin" => "admin/homes#top"
+  
 end
