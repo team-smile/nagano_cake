@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-  
-  devise_for :admins
-  
-  devise_scope :customers do
-    get 'end_users/sign_up' => 'registrations#new'
-    post 'end_users' => 'registrations#create'
-    get 'end_users/sign_in' => 'sessions#new'
-    post 'end_users/sign_in' => 'sessions#create'
-    delete 'end_users/sign_out' => 'sessions#destroy'
+
+  devise_for :admins, controllers: {
+    sessions: 'admin/sessions'
+  }
+  devise_for :customers, skip: :all
+
+  devise_scope :customer do
+    get 'end_users/sign_up' => 'public/registrations#new'
+    post 'end_users' => 'public/registrations#create'
+    get 'end_users/sign_in' => 'public/sessions#new'
+    post 'end_users/sign_in' => 'public/sessions#create'
+    delete 'end_users/sign_out' => 'public/sessions#destroy'
   end
-  
-  
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :public do
     root "homes#top"
@@ -27,7 +30,7 @@ Rails.application.routes.draw do
     get "orders/complete" => "orders#complete"
     resources :addresses, except: [:new, :show]
   end
-  
+
   namespace :admin do
     get "admin" => "admin#homes"
     resources :items, except: [:destroy]
