@@ -1,8 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
-    @random = Item.order("RANDOM()").limit(4)
-    @item = Item.find(params[:id])
-    @genres = Genres.all
+    @random = Item.order("RANDOM()").limit(3)
+    @genres = Genre.all
   end
 
   def about
