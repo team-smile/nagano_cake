@@ -54,10 +54,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise"
 gem "jp_prefecture"
-gem  "refile", require: "refile/rails", github: 'manfe/refile'
-gem  "refile-mini_magick"
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 gem "bootstrap-sass", '~> 3.3.6'
-gem  'jquery-rails'
+gem 'jquery-rails'
 gem 'payjp'
 gem "pry-rails"
 gem "pry-nav"
