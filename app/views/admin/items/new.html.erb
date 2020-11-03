@@ -1,43 +1,43 @@
 <h1>商品新規登録</h1>
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <%#= form_with model:@item, local:true do |f| %>-->
-<!--    <div class="col-xs-6">-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :image, '商品画像' %>-->
-<!--        <%#= f.attachment_field :image %>-->
+<div class="container">
+  <div class="row">
+    <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :image, '商品画像' %>
+        <%= f.attachment_field :image %>
         <!--プレビュー機能の実装をするか検討-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="col-xs-6">-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :name, '商品名' %>-->
-<!--        <%#= f.text_field :name %>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :introduction, '商品説明' %>-->
-<!--        <%#= f.text_field :introduction %>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :genre_id, 'ジャンル' %>-->
-<!--        <%#= f.select :genre, Genre.all.map{|g| [g.name]} %>-->
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= f.label :name, '商品名' %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, '商品説明' %>
+        <%= f.text_area :introduction %>
+      </div>
+      <div class="form-group">
+        <%= f.label :genre_id, 'ジャンル' %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name %>
         <!--※有効の場合のみ指定をするのか要検討-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :price, '税抜価格' %>-->
-<!--        <%#= f.text_field :price %>-->
-<!--      </div>-->
-<!--      <div class="form-group">-->
-<!--        <%#= f.label :price, '販売ステータス' %>-->
-<!--        <%#= f.select :is_active, [['販売中', true], ['売切れ', false]] %>-->
-<!--      </div>-->
-<!--      <p><%#= f.submit '新規登録' %></p>-->
-<!--    </div>-->
-<!--    <%# end %>-->
-<!--  </div>-->
-<!--</div>-->
+      </div>
+      <div class="form-group">
+        <%= f.label :price, '税抜価格' %>
+        <%= f.text_field :price %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price, '販売ステータス' %>
+        <%= f.select :is_active, [['販売中', true], ['売切れ', false]] %>
+      </div>
+      <p><%= f.submit '新規登録' %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
 
-  
-  
-  
+
+
+
 
