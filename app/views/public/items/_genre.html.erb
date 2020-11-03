@@ -1,13 +1,13 @@
 <table>
   <thead>
     <tr>
-      <th>ジャンル検索</th> 
+      <th>ジャンル検索</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <% @genres.each do |genre| %>
-        <td>genre</td>
+      <% genres.each do |genre| %>
+        <td><%= genre.name %></td>
       <% end %>
     </tr>
   </tbody>
