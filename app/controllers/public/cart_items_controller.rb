@@ -17,9 +17,8 @@ class Public::CartItemsController < ApplicationController
     # @oreder = Order.new
     # @order.user_id = current_user.id
     # @order.save!
-
     # @user.cart_items.each do |cart_item|
-
+    
     @cart_item = current_user.cart_items.build(cart_item_params)
     @cart_items = current_user.cart_items.all
     @cart_items.each do |cart_item|
