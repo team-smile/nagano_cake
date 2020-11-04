@@ -31,10 +31,7 @@ class Admin::SessionsController < Devise::SessionsController
     respond_to_on_destroy
   end
   
-  def after_sign_up_path_for(resource)
-    admin_path
-  end
-
+  
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
