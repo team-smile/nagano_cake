@@ -1,0 +1,40 @@
+<div class="col-xs-3">
+  <div class="form-group">
+    <%= f.label :image, "商品画像" %>
+    <%= f.attachment_field :image %>
+    <!--プレビュー機能の実装をするか検討-->
+  </div>
+</div>
+
+<div class="col-xs-5">
+  <div class="form-group">
+    <%= f.label :name, "商品名", class: "item-label" %>
+    <%= f.text_field :name, class: "item-form" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction, "商品説明", class: "item-label-introduction" %>
+    <%= f.text_area :introduction, rows: 8, class: "item-form-introduction" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre_id, "ジャンル", class: "item-label" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "選択してください"}, {class: "item-form"} %>
+    <!--※有効の場合のみ指定をするのか要検討-->
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "税抜価格", class: "item-label" %>
+    <%= f.text_field :price, class: "item-form"%> 円
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "販売ステータス", class: "item-label" %>
+    <%= f.select :is_active, [["販売中", true], ["売切れ", false]], {include_blank: "選択してください"}, {class: "item-form"} %>
+    <!--「選択してください」がdefault値設定により先表示されない。-->
+  </div>
+</div>
+
+<div class="col-xs-4 item-edit">
+  <% if local_assigns[:edit_flag].present? %>
+    <p><%= f.submit "変更を保存", class: "btn btn-primary" %></p>
+  <% else %>
+    <p><%= f.submit "新規登録", class: "btn btn-primary" %></p>
+  <% end %>
+</div>
