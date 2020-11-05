@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   devise_for :customers, skip: :all
 
   devise_scope :customer do
-    get 'end_users/sign_up' => 'public/registrations#new'
-    post 'end_users' => 'public/registrations#create'
-    get 'end_users/sign_in' => 'public/sessions#new'
-    post 'end_users/sign_in' => 'public/sessions#create'
-    delete 'end_users/sign_out' => 'public/sessions#destroy'
+    get 'end_users/sign_up' => 'customers/registrations#new'
+    post 'end_users' => 'customers/registrations#create'
+    get 'end_users/sign_in' => 'customers/sessions#new'
+    post 'end_users/sign_in' => 'customers/sessions#create'
+    delete 'end_users/sign_out' => 'customers/sessions#destroy'
   end
 
 
