@@ -9,8 +9,8 @@ class Public::CartItemsController < ApplicationController
 
     if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
       @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
-      @cart_item.amount += params[:cart_item][:amount].to_i
-      @cart_item.update
+      cart_amount = @cart_item.amount + params[:cart_item][:amount].to_i
+      @cart_item.update(amount: cart_amount)
     else
       @cart_item.save
     end
@@ -20,11 +20,13 @@ class Public::CartItemsController < ApplicationController
   def index
     @cart_items = CartItem.all
     # @cart_items = current_customer.cart_item
+    # 初期値を指定する（数字であることを表すため）
+    @sum = 0
   end
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(amount: params[:amount].to_i)
+    @cart_item.update(amount: params[:cart_item][:amount].to_i)
     redirect_to :cart_items
   end
 
