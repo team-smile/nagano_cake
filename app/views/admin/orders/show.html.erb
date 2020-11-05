@@ -22,9 +22,10 @@
         <td>支払ステータス</td>
         <td>
           <%= form_with model:@order, url:admin_order_path(@order) ,local: true do |f| %>
-            <%= f.select :status, options_for_select(Order.statuses.keys) %>
+            <%= f.select :status, options_for_select(Order.statuses.keys), {} %>
             <%= f.submit "更新" %>
           <% end %>
+          <%= @order.status %>
         </td>
       <tr>
            
@@ -45,12 +46,12 @@
   <tbody>
     <tr>
       <td><%= order.name %></td>
-      <td>" order.order_details.price "</td></td>
+      <td>" order.order_details.price.to_s(:delimited) "</td></td>
       <td>" order.order_details.amount "</td></td>
       <td>" order.order_details.making_status "</td>
       <td>
         <%= form_with model:@order, url:admin_order_path(order) ,local: true do |f| %>
-          <%= select :making_status,:name,OrderDetail.making_statuses.keys.to_a %>
+          <%= f.select :making_status, options_for_select(OrderDetail.making_statuses) %>
           <%= f.submit "更新" %>
         <% end %>
       </td>
@@ -67,10 +68,11 @@
     </tr>
     <tr>
       <td>送料</td>
-      <td><%= @order.postage %></td>
-    </tr><tr>
+      <td>< @order.shipping_cost </td>
+    </tr>
+    <tr>
       <td>請求金額合計</td>
-      <td><%= @order.total_payment %></td>
+      <td><%= @order.total_payment.to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
