@@ -16,6 +16,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    @order = Order.new
+    # @order.customer_id = current_customer.id
   end
 
   def confirm
@@ -25,6 +27,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.cart_item
   end
 
   def show

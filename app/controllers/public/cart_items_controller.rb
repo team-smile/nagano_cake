@@ -5,8 +5,8 @@ class Public::CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     # @cart_item.customer_id = current_customer.id
     @cart_item.customer_id = 1
-    
-    # current_end_user.cart_items.find_by(item_id: params[:cart_item][:item_id]).present?
+
+
     if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
       @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.amount += params[:cart_item][:amount].to_i
@@ -14,7 +14,7 @@ class Public::CartItemsController < ApplicationController
     else
       @cart_item.save
     end
-    redirect_to :cart_items
+    redirect_to :cart_items, notice: 'カートに追加しました。'
   end
 
   def index
@@ -23,18 +23,21 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
     @cart_item.update(amount: params[:amount].to_i)
-    redirect_to current_cart_item
+    redirect_to :cart_items
   end
 
   def destroy
+    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to current_cart_item
+    redirect_to :cart_items
   end
 
   def destroy_all
-    @user = current_user
-    @user.cart_items.delete_all
+    @customer = current_customer
+    @customer.cart_items.destroy_all
+    redirect_to :cart_items, notice: "カートが空になりました。"
   end
 
   private
