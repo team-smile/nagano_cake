@@ -4,8 +4,9 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-    # @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
     @orders = Order.all
+    
   end
 
   def update
@@ -13,7 +14,8 @@ class Admin::OrdersController < ApplicationController
     if @order.update(order_params)
       redirect_to admin_order_path(@order)
     else
-      render show
+      @orders = Order.all
+      render "show"
     end
   end
   

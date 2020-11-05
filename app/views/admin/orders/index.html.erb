@@ -16,12 +16,10 @@
           <%= order.created_at %>
         <% end %>
       </td>
-      <td><%= order.name %></td>
+      <td>" order.customer.last_name "" order.customer.first_name "</td>
       <td><%= order.postage %></td>
       <td><%= order.status %></td>
     </tr>
   </tbody>
   <% end %>
 </table>
-
-
