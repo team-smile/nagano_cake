@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters,if: :devise_controller?
 
-
   def after_sign_up_path_for(resource)
     items_path(currnt_customer)
   end
@@ -9,11 +8,11 @@ class ApplicationController < ActionController::Base
     items_path(current_customer)
   end
 
-
   def after_sign_in_path_for(resource)
     case resource
     when Admin
       admin_path
+
     end
   end
 
