@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
   devise_for :admin, controllers: {
-        sessions: 'admin/sessions'
+    sessions: 'admin/sessions'
   }
-    
+  devise_for :customers, skip: :all
 
-  devise_scope :customers do
-    get 'end_users/sign_up' => 'registrations#new'
-    post 'end_users' => 'registrations#create'
-    get 'end_users/sign_in' => 'sessions#new'
-    post 'end_users/sign_in' => 'sessions#create'
-    delete 'end_users/sign_out' => 'sessions#destroy'
+  devise_scope :customer do
+    get 'end_users/sign_up' => 'customers/registrations#new'
+    post 'end_users' => 'customers/registrations#create'
+    get 'end_users/sign_in' => 'customers/sessions#new'
+    post 'end_users/sign_in' => 'customers/sessions#create'
+    delete 'end_users/sign_out' => 'customers/sessions#destroy'
   end
 
 
