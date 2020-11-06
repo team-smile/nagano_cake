@@ -1,9 +1,10 @@
 <h2><%= @end_user.last_name %><%= @end_user.first_name %>さんの会員情報編集</h2>
 
-<%= form_with model:@end_user, local: true do |f| %>
+<%= form_with model:@end_user, url: admin_end_user_path(@end_user), local:true do |f| %>
+<table>
   <tr>
       <td><%= f.label :"顧客ID" %></td>
-      <td><%= f.id %></td>
+      <td><%= @end_user.id %></td>
   </tr>
   <tr>
       <td><%= f.label :"氏名" %></td>
@@ -32,9 +33,15 @@
 
   <tr>
       <td><%= f.label :"会員ステータス" %></td>
-      <!--<td><%= f.check_box :is_deleted %></td> 調べたがワイヤーフレームのような表記が不明でサーバー立ち上げられないのでペンディング-->
+      <td>
+        <%= f.radio_button :is_deleted, :true %>
+        <%= f.label :is_deleted, "有効", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_deleted, :false %>
+        <%= f.label :is_deleted, "無効", {value: :false, style: "display: inline-block;"} %>
+      </td>
   </tr>
+  </table>
 
   <%= f.submit "変更を保存する" %>
 
-<%= end %>
+<% end %>
