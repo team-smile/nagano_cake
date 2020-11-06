@@ -7,5 +7,7 @@ class Customer < ApplicationRecord
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   
-  enum is_deleted: { "有効":true ,"無効":false }
+  validates :last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telphone_number, :email, presence: true
+  validates :is_deleted, inclusion: [true, false]
+  validates :telphone_number, :postal_code, numericality: {only_integer: true}
 end
