@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'end_users/sign_in' => 'customers/sessions#new'
     post 'end_users/sign_in' => 'customers/sessions#create'
     delete 'end_users/sign_out' => 'customers/sessions#destroy'
+    get 'end_users/password' => 'customers/passwords#new'
+    post 'end_users/password' => 'customers/passwords#create'
   end
 
 
