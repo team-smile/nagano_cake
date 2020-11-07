@@ -1,25 +1,24 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admin, controllers: {
-        sessions: 'admin/sessions'
+    sessions: 'admin/sessions'
   }
-    
-  
-  devise_scope :customers do
-    get 'end_users/sign_up' => 'registrations#new'
-    post 'end_users' => 'registrations#create'
-    get 'end_users/sign_in' => 'sessions#new'
-    post 'end_users/sign_in' => 'sessions#create'
-    delete 'end_users/sign_out' => 'sessions#destroy'
+  devise_for :customers, skip: :all
+
+  devise_scope :customer do
+    get 'end_users/sign_up' => 'customers/registrations#new'
+    post 'end_users' => 'customers/registrations#create'
+    get 'end_users/sign_in' => 'customers/sessions#new'
+    post 'end_users/sign_in' => 'customers/sessions#create'
+    delete 'end_users/sign_out' => 'customers/sessions#destroy'
   end
-  
-  
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :public do
     root "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
-    resources :genres
     resources :end_users, only: [:show, :edit, :update]
     get "end_users/unsubscribe" => "end_users#unsubscribe"
     patch "end_users/withdraw" => "end_users#withdraw"
@@ -30,10 +29,10 @@ Rails.application.routes.draw do
     get "orders/complete" => "orders#complete"
     resources :addresses, except: [:new, :show]
   end
-  
+
   namespace :admin do
     resources :items, except: [:destroy]
-    resources :genres, except: [:new, :show, :destroy]
+    resources :genres, only: [:edit, :update, :create, :index]
     resources :end_users, except: [:new, :create, :destroy]
     resources :orders, only: [:index, :show, :update] do
       patch "order_details/:id" => "order_details#update"
