@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       patch "order_details/:id" => "order_details#update"
     end
   end
-  
+
   get "admin" => "admin/homes#top"
-  
+
 end
