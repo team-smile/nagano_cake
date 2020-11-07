@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.item-lists {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.welcome {
+  text-align: center;
+  font-size: 25px;
+}
+
+// Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
+body {
+  padding-top: 70px;
+}
+
+.welcome-message {
+  color: white;
+  padding: 15px 25px 0 0;
+}
