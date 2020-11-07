@@ -1,12 +1,16 @@
 class Admin::OrdersController < ApplicationController
+  
   def index
     @orders = Order.all
   end
 
   def show
     @order = Order.find(params[:id])
-    @orders = Order.all
-    # @order_detail = OrderDetail.find(params[:id])
+    @order_details = @order.order_details
+    @sum = 0
+    @order_details.each do |order_detail|
+      @sum += order_detail.price*order_detail.amount
+    end
   end
 
   def update
