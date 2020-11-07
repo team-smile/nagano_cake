@@ -3,19 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // 各商品画面の見出し
-.item {
-    margin-bottom: 80px;
+.item-header {
+  margin-bottom: 80px;
 }
 
 // 商品一覧画面での新規投稿画面遷移用ボタン
 .new-botton {
   color: gray;
   float: right;
-}
-
-// 商品詳細・編集画面のボタン
-.item-edit {
-  margin-top: 380px;
 }
 
 // 商品新規投稿・編集画面のフォーム欄
@@ -35,9 +30,5 @@
 
 .item-form-introduction {
   width: 250px;
-}
-
-.field_with_errors {
-  width: 100px;
 }
 
