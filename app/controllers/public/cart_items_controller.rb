@@ -1,10 +1,9 @@
 class Public::CartItemsController < ApplicationController
-  # before_action :setup_cart_item!, only: [:create, :update, :destroy]
+  before_action :authenticate_customer!
 
   def create
     @cart_item = CartItem.new(cart_item_params)
-    # @cart_item.customer_id = current_customer.id
-    @cart_item.customer_id = 1
+    @cart_item.customer_id = current_customer.id
 
 
     if CartItem.find_by(item_id: params[:cart_item][:item_id]).present?
@@ -18,8 +17,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def index
-    @cart_items = CartItem.all
-    # @cart_items = current_customer.cart_item
+    @customer = current_customer
+    @cart_items = @customer.cart_items.all
     # 初期値を指定する（数字であることを表すため）
     @sum = 0
   end
@@ -37,6 +36,7 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    # cart_items = CartItem.all
     @customer = current_customer
     @customer.cart_items.destroy_all
     redirect_to :cart_items, notice: "カートが空になりました。"
@@ -47,7 +47,4 @@ class Public::CartItemsController < ApplicationController
    def cart_item_params
     params.require(:cart_item).permit(:amount, :item_id)
    end
-  # def setup_cart_item!
-  #   @cart_item = current_cart_item.find_by(item_id: params[:item_id])
-  # end
 end

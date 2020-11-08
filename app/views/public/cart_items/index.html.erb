@@ -3,6 +3,8 @@
     <div class="row">
       <div class="col-lg-8">
         <h2>ショッピングカート</h2>
+        <!--部分テンプレート予定（confirmのところも）-->
+        <% if @cart_items.present? %>
         <table border="1">
           <thead>
             <tr>
@@ -41,6 +43,10 @@
         <div class="all-delete">
           <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, data: {confirm: "カート内商品を全て削除しますか？"}, class: "btn-sm btn-danger" %>
         </div>
+        <% else %>
+          <h2>カート内商品はありません。</h2>
+          <p class="cotinue-shopping"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
+        <% end %>
       </div>
     </div>
   </body>
