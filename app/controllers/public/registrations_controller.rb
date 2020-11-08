@@ -8,6 +8,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
     items_path(current_customer)
   end
 
+  # ↓は会員データ編集後のルート設定
+# 　def after_update_path_for(resource)
+# 　  items_path(current_user)
+# 　end
+
   # GET /resource/sign_up
     # def new
       # super
@@ -63,5 +68,4 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
 end
