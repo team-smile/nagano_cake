@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'end_users/sign_in' => 'customers/sessions#new'
     post 'end_users/sign_in' => 'customers/sessions#create'
     delete 'end_users/sign_out' => 'customers/sessions#destroy'
+    get 'end_users/password' => 'customers/passwords#new'
+    post 'end_users/password' => 'customers/passwords#create'
   end
 
 
@@ -19,9 +21,10 @@ Rails.application.routes.draw do
     root "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
+    get "/end_users/my_page" => "end_users#show"
     get "end_users/unsubscribe" => "end_users#unsubscribe"
     patch "end_users/withdraw" => "end_users#withdraw"
-    resources :end_users, only: [:show, :edit, :update]
+    resources :end_users, only: [:edit, :update]
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :cart_items, except: [:show, :new, :edit]
     post "orders/confirm" => "orders#confirm"

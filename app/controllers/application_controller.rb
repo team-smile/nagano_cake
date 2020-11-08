@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     case resource
     when Admin
       admin_path
-
     end
   end
 
