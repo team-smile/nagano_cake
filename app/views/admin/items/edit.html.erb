@@ -4,7 +4,7 @@
 
     <div class="row">
       <%= form_with model:@item, url:admin_item_path(@item), local:true do |f| %>
-      <%= render "form", f: f, edit_flag: true %>
+      <%= render "form", f: f, item: @item, edit_flag: true %>
       <% end %>
     </div>
 </div>

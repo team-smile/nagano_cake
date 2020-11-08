@@ -18,9 +18,10 @@
         <% end %>
       </td>
       <td><%= end_user.email %></td></td>
-      <td><%= end_user.is_deleted %></td>
+      <td><%= end_user.is_deleted == true ? '有効':'退会済' %></td>
     </tr>
   </tbody>
   <% end %>
 </table>
 
+<%= paginate @end_users %>
