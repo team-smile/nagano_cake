@@ -29,7 +29,7 @@
           <td><%= item.is_active == true ? "販売中":"販売停止中" %></td>
         </tr>
       <% end %>
-      <!--※商品IDとページへkaminari導入確認。-->
     </tbody>
   </table>
+  <%= paginate @items %>
 </div>
