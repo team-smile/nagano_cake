@@ -3,18 +3,14 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'
   }
-  devise_for :customers, skip: :all
 
-  devise_scope :customer do
-    get 'end_users/sign_up' => 'customers/registrations#new'
-    post 'end_users' => 'customers/registrations#create'
-    get 'end_users/sign_in' => 'customers/sessions#new'
-    post 'end_users/sign_in' => 'customers/sessions#create'
-    delete 'end_users/sign_out' => 'customers/sessions#destroy'
-    get 'end_users/password' => 'customers/passwords#new'
-    post 'end_users/password' => 'customers/passwords#create'
-  end
-
+  devise_for :customers,
+    path: 'end_users',
+    controllers: {
+      registrations: "public/registrations",
+      sessions: "public/sessions",
+      end_users: "public/end_users"
+    }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :public do
