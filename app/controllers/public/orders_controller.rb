@@ -15,10 +15,17 @@ class Public::OrdersController < ApplicationController
       name: params[:order][:name],
       postage: params[:order][:postage],
       total_payment: params[:order][:total_payment],
-      payment_method: params[:order][:payment_method],
-      status: params[:order][:status]
+      payment_method: params[:order][:payment_method]
       )
     @order.save
+    # @order_detail = OrderDetail.new(
+    #   item_id: current_customer.item.id,
+    #   order_id: current_customer.order.id,
+    #   price: params[:item][:price],
+    #   amount: params[:item][:amount],
+    #   making_status: params[:order][:making_status]
+    #   )
+    # @order_detail.save
     redirect_to orders_complete_path
   end
 
@@ -30,7 +37,9 @@ class Public::OrdersController < ApplicationController
     @cart_items = @customer.cart_items.all
     @addresses = current_customer.addresses
     @sum = 0
-    @postage = 800
+    @rate = 1.1
+    @order.postage = 800
+
 
     if params[:order][:order] == "0"
       @order.postal_code = @customer.postal_code
