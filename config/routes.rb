@@ -3,33 +3,29 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'
   }
-  devise_for :customers, skip: :all
 
-  devise_scope :customer do
-    get 'end_users/sign_up' => 'customers/registrations#new'
-    post 'end_users' => 'customers/registrations#create'
-    get 'end_users/sign_in' => 'customers/sessions#new'
-    post 'end_users/sign_in' => 'customers/sessions#create'
-    delete 'end_users/sign_out' => 'customers/sessions#destroy'
-    get 'end_users/password' => 'customers/passwords#new'
-    post 'end_users/password' => 'customers/passwords#create'
-  end
-
+  devise_for :customers,
+    path: 'end_users',
+    controllers: {
+      registrations: "public/registrations",
+      sessions: "public/sessions",
+      end_users: "public/end_users"
+    }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   scope module: :public do
     root "homes#top"
     get "about" => "homes#about"
     resources :items, only: [:index, :show]
-    resources :end_users, only: [:edit, :update]
     get "/end_users/my_page" => "end_users#show"
     get "end_users/unsubscribe" => "end_users#unsubscribe"
     patch "end_users/withdraw" => "end_users#withdraw"
-    resources :cart_items, except: [:show, :new, :edit]
+    resources :end_users, only: [:edit, :update]
     delete "cart_items/destroy_all" => "cart_items#destroy_all"
-    resources :orders, except: [:edit, :update, :destroy]
+    resources :cart_items, except: [:show, :new, :edit]
     post "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
+    resources :orders, except: [:edit, :update, :destroy]
     resources :addresses, except: [:new, :show]
   end
 

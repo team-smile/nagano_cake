@@ -1,2 +1,53 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <h2>注文履歴詳細</h2>
+      <table>
+        <tr>
+          <td>注文日</td>
+          <td>
+            <time><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></time>
+          </td>
+          </td>
+          <td><%= order.address %></td>
+          <td><%= order.item %></td>
+          <td><%= order.total_payment %></td>
+          <td><%= order.status %></td>
+        </tr>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @cart_items.each do |cart_item| %>
+          <tr>
+            <td><%= cart_item.item.name %></td>
+            <td class="item-price"><%= addTax(cart_item.item.price,1.1) %></td>
+            <td>
+              <%= cart_item.item.amount %>
+            </td>
+            <td><%= addTax((cart_item.item.price * cart_item.amount),1.1) %></td>
+          </tr>
+          <% @sum += cart_item.item.price * cart_item.amount %>
+         <% end %>
+        </tbody>
+      </table>
+      <div class="col-lg-3">
+        <table>
+          <tr>
+            <td>商品合計</td><td>¥<%= (@sum * 1.1 ).round %>(税込)</td>
+            <td>配送料</td><td>¥<%= @postage %></td>
+            <td>御請求額</td><td>¥<%= (@sum * 1.1 ).round + @postage %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
