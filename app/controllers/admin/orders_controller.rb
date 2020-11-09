@@ -18,7 +18,12 @@ class Admin::OrdersController < ApplicationController
     if @order.update(order_params)
       redirect_to admin_order_path(@order)
     else
-      @orders = Order.all
+      @order = Order.find(params[:id])
+      @order_details = @order.order_details
+      @sum = 0
+      @order_details.each do |order_detail|
+        @sum += order_detail.price*order_detail.amount
+      end
       render "show"
     end
   end
