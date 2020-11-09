@@ -6,13 +6,13 @@
         <tr>
           <td>注文日</td>
           <td>
-            <time><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></time>
+            <%= @order.created_at.strftime("%Y-%m-%d %H:%M") %>
           </td>
           </td>
-          <td><%= order.address %></td>
-          <td><%= order.item %></td>
-          <td><%= order.total_payment %></td>
-          <td><%= order.status %></td>
+          <td>〒<%= @order.postal_code %> <%= @order.address %> <%= @order.first_name %><%= @order.last_name %></td>
+          <td><%= @order.item %></td>
+          <td><%= @order.total_payment %></td>
+          <td><%= @order.status %></td>
         </tr>
       </table>
       <table>
