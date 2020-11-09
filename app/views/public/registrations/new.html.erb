@@ -2,8 +2,8 @@
   <div class="row">
     <h2>新規登録</h2>
 
-    <%= form_with model: @customer, url: end_users_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-      <%= render "customers/shared/error_messages", resource: resource %>
+    <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
 
       <div class="form-group">
         <label>名前   </label>
@@ -55,7 +55,7 @@
   <div class="row">
     <h2>既に登録済みの方</h2>
     <p>
-      <%= link_to "こちら", end_users_sign_in_path %>　からログインしてください。
+      <%= link_to "こちら", new_customer_session_path %>　からログインしてください。
     </p>
   </div>
 
