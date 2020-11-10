@@ -27,6 +27,11 @@
   font-size: 25px;
 }
 
+
+.total-price {
+  margin: auto;
+}
+
 // Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
 body {
   padding-top: 70px;
