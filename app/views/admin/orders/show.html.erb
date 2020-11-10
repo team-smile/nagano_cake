@@ -69,11 +69,11 @@
     </tr>
     <tr>
       <td>送料</td>
-      <td>< @order.postage </td>
+      <td><%= @order.postage %></td>
     </tr>
     <tr>
       <td>請求金額合計</td>
-      <td> (@sum + @order.postage).to_s(:delimited) %></td>
+      <td><%= (@sum + @order.postage).to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
