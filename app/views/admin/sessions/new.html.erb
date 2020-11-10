@@ -2,27 +2,23 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<table class="admin_login">
-  <tbody>
-  <tr>
-  <td><%= f.label :"メールアドレス" %></td>
-  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-  </tr>
-  <tr>
-  <td><%= f.label :パスワード %></td>
-  <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-  </tr>
+<table>
+    <tr class="admin-login-form">
+      <td class="admin-email-form"><%= f.label :"メールアドレス" %></td>
+      <td class="admin-email-form"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :パスワード %></td>
+      <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+    </tr>
   <!--<% if devise_mapping.rememberable? %>-->
   <!--  <div class="field">-->
   <!--    <%= f.check_box :remember_me %>-->
   <!--    <%= f.label :remember_me %>-->
   <!--  </div>-->
   <!--<% end %>-->
-  <tr>
-  <td class="actions"><%= f.submit "ログイン" %></td>
-  </tr>
-  </tbody>
-</table>  
+</table>
+<div class="admin_login_button"><%= f.submit "ログイン" %></div>
 
 <% end %>
 
