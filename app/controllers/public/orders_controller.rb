@@ -18,14 +18,16 @@ class Public::OrdersController < ApplicationController
       payment_method: params[:order][:payment_method]
       )
     @order.save
-    # @order_detail = OrderDetail.new(
-    #   item_id: current_customer.item.id,
-    #   order_id: current_customer.order.id,
-    #   price: params[:item][:price],
-    #   amount: params[:item][:amount],
-    #   making_status: params[:order][:making_status]
-    #   )
-    # @order_detail.save
+
+    @cart_items = current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+        @order_details = @order.order_details.new
+        @order_details.item_id = cart_item.item.id
+        @order_details.price = cart_item.item.price * 1.1
+        @order_details.amount = cart_item.amount
+        @order_details.save
+        current_customer.cart_items.destroy_all
+      end
     redirect_to orders_complete_path
   end
 
@@ -40,7 +42,6 @@ class Public::OrdersController < ApplicationController
     @rate = 1.1
     @order.postage = 800
 
-
     if params[:order][:order] == "0"
       @order.postal_code = @customer.postal_code
       @order.address = @customer.address
@@ -50,6 +51,13 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = @address.postal_code
       @order.address = @address.address
       @order.name = @address.name
+    elsif params[:order][:order] == "2"
+      new_address = Address.new
+      new_address.customer_id = current_customer.id
+      new_address.name = @order.name
+      new_address.postal_code = @order.postal_code
+      new_address.address = @order.address
+      new_address.save
     end
   end
 
@@ -59,13 +67,14 @@ class Public::OrdersController < ApplicationController
   def index
     @customer = current_customer
     @orders = @customer.orders.all
+    # @order_details = @customer.order_details
   end
 
   def show
     @customer = current_customer
-    @cart_items = @customer.cart_items.all
     @sum = 0
     @postage = 800
+    @rate = 1.1
     @order = Order.find(params[:id])
   end
 

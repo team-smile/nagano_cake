@@ -42,7 +42,6 @@
         <%= f.hidden_field :postage, :value => @order.postage %>
         <%= f.hidden_field :total_payment, :value => (@sum * @rate).round + @order.postage %>
         <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-        <%#= f.hidden_field :status, :value => @order.status %>
         <%= f.submit "購入を確定する", class: "btn btn-success" %>
       <% end %>
     </div>
