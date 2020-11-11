@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page]).per(9)
     @genres = Genre.all
   end
 
@@ -9,6 +9,6 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
     @genres = Genre.all
-
+    @rate = 1.1
   end
 end

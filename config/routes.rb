@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get "orders/complete" => "orders#complete"
     resources :orders, except: [:edit, :update, :destroy]
     resources :addresses, except: [:new, :show]
+    resources :genres, only: [:show]
   end
 
   namespace :admin do
