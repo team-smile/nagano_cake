@@ -51,7 +51,7 @@
       <td>
          <%= form_with model:order_detail, url: admin_order_order_detail_path(@order, order_detail), local: true do |f| %>
            <%= f.select(:making_status, {制作不可: '制作不可', 制作待ち: '制作待ち', 制作中: '制作中', 制作完了: '制作完了'}) %>
-           <!--<%= f.submit "更新" %> ３−５にて実装-->
+           <%= f.submit "更新" %>
          <% end %>
       </td>
     </tr>

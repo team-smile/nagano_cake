@@ -2,6 +2,7 @@ class Admin::OrdersController < ApplicationController
   
   def index
     @orders = Order.all
+    @sum = 0
   end
 
   def show
@@ -16,15 +17,10 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    binding.pry
     if @order.update(order_params)
       if @order.status == "入金確認"
-        @order_detail = OrderDetail.find(15)
+        @order_detail = @order.order_details
         @order_detail.update(making_status:"制作待ち")
-        redirect_to admin_order_path(@order)
-      elsif @order.status == "制作中"
-        @orders = Order.where(order_id: @order.id)
-        @orders.update(status:"制作中")
         redirect_to admin_order_path(@order)
       else
       redirect_to admin_order_path(@order)
