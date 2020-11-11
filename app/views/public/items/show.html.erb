@@ -17,7 +17,7 @@
           <% if @item.is_active == true %>
             <%# if @item.genre.is_active == true %>
               <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
-                <%= f.select :amount, options_for_select((1..30).to_a), include_blank: "個数選択" %>
+                <%= f.select :amount, options_for_select((0..30).to_a) %>
                 <%= f.hidden_field :item_id, :value => @item.id %>
                 <%= f.button :type => "submit", class: "btn btn-primary" do %>
                   <i class="fas fa-shopping-cart"></i>
