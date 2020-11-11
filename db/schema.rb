@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_052227) do
     t.integer "order_id", null: false
     t.integer "price", null: false
     t.integer "amount", null: false
-    t.integer "making_status", default: 0, null: false
+    t.integer "making_status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_052227) do
     t.integer "postage", null: false
     t.integer "total_payment", null: false
     t.integer "payment_method", default: 0, null: false
-    t.integer "status", default: 0, null: false
+    t.integer "status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
