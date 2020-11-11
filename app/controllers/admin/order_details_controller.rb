@@ -12,6 +12,8 @@ class Admin::OrderDetailsController < ApplicationController
         if @order.order_details.all?{|m| m.making_status =="制作完了"}
           @order.update(status:"発送準備中")
           redirect_to admin_order_path(@order)
+        elsif
+        redirect_to admin_order_path(@order)
         end
       else
        @order = @order_detail.order
