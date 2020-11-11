@@ -2,20 +2,25 @@
   <div class="row">
     <div class="col-lg-9">
       <h2>注文履歴詳細</h2>
-      <table>
+      <h4>注文情報</h4>
+      <table border="1">
         <tr>
           <td>注文日</td>
+          <td>配送先</td>
+          <td>支払方法</td>
+          <td>ステータス</td>
+        </tr>
+        <tr>
           <td>
-            <time><%= order.created_at.strftime("%Y-%m-%d %H:%M") %></time>
+            <%= @order.created_at.strftime("%Y-%m-%d %H:%M") %>
           </td>
-          </td>
-          <td><%= order.address %></td>
-          <td><%= order.item %></td>
-          <td><%= order.total_payment %></td>
-          <td><%= order.status %></td>
+          <td>〒<%= @order.postal_code %> <%= @order.address %> <%= @order.name %></td>
+          <td><%= @order.payment_method %></td>
+          <td><%= @order.status %></td>
         </tr>
       </table>
-      <table>
+      <h4>注文内容</h4>
+      <table border="1">
         <thead>
           <tr>
             <th>商品名</th>
@@ -26,28 +31,30 @@
           </tr>
         </thead>
         <tbody>
-         <% @cart_items.each do |cart_item| %>
+         <% @order.order_details.each do |order_detail| %>
           <tr>
-            <td><%= cart_item.item.name %></td>
-            <td class="item-price"><%= addTax(cart_item.item.price,1.1) %></td>
+            <td><%= order_detail.item.name %></td>
+            <td class="item-price"><%= addTax(order_detail.item.price,@rate) %></td>
             <td>
-              <%= cart_item.item.amount %>
+              <%= order_detail.amount %>
             </td>
-            <td><%= addTax((cart_item.item.price * cart_item.amount),1.1) %></td>
+            <td><%= addTax((order_detail.item.price * order_detail.amount),@rate) %></td>
           </tr>
-          <% @sum += cart_item.item.price * cart_item.amount %>
+          <% @sum += order_detail.item.price * order_detail.amount %>
          <% end %>
         </tbody>
       </table>
-      <div class="col-lg-3">
-        <table>
-          <tr>
-            <td>商品合計</td><td>¥<%= (@sum * 1.1 ).round %>(税込)</td>
-            <td>配送料</td><td>¥<%= @postage %></td>
-            <td>御請求額</td><td>¥<%= (@sum * 1.1 ).round + @postage %></td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to "注文履歴一覧に戻る", orders_path %>
+    </div>
+    <div class="col-lg-3">
+      <h4>請求内容</h4>
+      <table border="1">
+        <tr>
+          <td>商品合計</td><td>¥<%= (@sum * @rate ).round %>(税込)</td>
+          <td>配送料</td><td>¥<%= @postage %></td>
+          <td>御請求額</td><td>¥<%= (@sum * @rate ).round + @postage %></td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

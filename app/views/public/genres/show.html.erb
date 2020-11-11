@@ -1,0 +1,13 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= render "public/items/genre", genres: @genres %>
+      </div>
+      <div class="col-lg-9">
+        <h2 class="item-head"><b><%= @genre.name %>一覧</b></h2>
+        <%= render "public/items/item", items: @items %>
+      </div>
+    </div>
+  </div>
+</body>
