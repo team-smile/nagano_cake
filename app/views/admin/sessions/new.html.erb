@@ -1,15 +1,18 @@
-<h3>管理者ログイン</h3>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<table>
-    <tr class="admin-login-form">
+<table class="admin-login-form">
+  <tr>
+    <th class="admin-login-title">管理者ログイン</th>
+    <th></th>
+  </tr>
+    <tr>
       <td class="admin-email-form"><%= f.label :"メールアドレス" %></td>
       <td class="admin-email-form"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
     </tr>
     <tr>
-      <td><%= f.label :パスワード %></td>
-      <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      <td class="admin-email-form"><%= f.label :パスワード %></td>
+      <td class="admin-email-form"><%= f.password_field :password, autocomplete: "current-password" %></td>
     </tr>
   <!--<% if devise_mapping.rememberable? %>-->
   <!--  <div class="field">-->
@@ -18,7 +21,7 @@
   <!--  </div>-->
   <!--<% end %>-->
 </table>
-<div class="admin_login_button"><%= f.submit "ログイン" %></div>
+<div class="admin_login_button"><%= f.submit "ログイン", class: "btn btn-primary" %></div>
 
 <% end %>
 
