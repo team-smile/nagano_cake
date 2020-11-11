@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :customer
   validates :postal_code, :address, :name, presence: true
 
+
   enum payment_method: {
     クレジットカード: 0,
     銀行振込: 1
@@ -15,4 +16,5 @@ class Order < ApplicationRecord
     発送準備中: 3,
     発送済み: 4
   }
+
 end
