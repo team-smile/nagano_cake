@@ -8,8 +8,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.integer :postage, null: false
       t.integer :total_payment, null: false
       t.integer :payment_method, default:0, null: false
-      t.integer :status, default:0, null: false
-
+      t.integer :status, default:0, null: false, limit: 1 #鈴木追加分、db:migrate済み
       t.timestamps
     end
   end
