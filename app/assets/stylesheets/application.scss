@@ -25,6 +25,12 @@
 .welcome {
   text-align: center;
   font-size: 25px;
+  margin-top: 20px;
+}
+
+
+.total-price {
+  margin: auto;
 }
 
 // Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
@@ -37,3 +43,79 @@ body {
   padding: 15px 25px 0 0;
 }
 
+// ジャンル検索機能
+.genre-search {
+  margin-top: 20px;
+}
+
+.genre-index {
+  width: 80%;
+  border: 10px double #444444;
+}
+
+.genre-index1, .genre-index2 {
+  height: 40px;
+  text-align: center;
+  font-size: 15px;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.genre-index1 {
+  background-color: #DDDDDD;
+  border-bottom: 2px solid #444444;
+  color: black;
+  font-size: 18px;
+}
+
+.genre-link {
+  text-decoration: none;
+  color: gray;
+}
+
+// 商品一覧（顧客）
+.image {
+  margin: 10px 15px 0 0;
+}
+
+.item-count {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.item-link {
+  text-decoration: none;
+  color: #444444;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.item-price {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+// トップページ
+.more {
+  margin: 20px 0 0 15px;
+}
+
+.more-link {
+  text-decoration: none;
+  color: #3333FF;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+// 商品詳細ページ（顧客）
+.show-item {
+  margin-top: 50px;
+}
+
+.show-item-name {
+  font-weight: bold;
+}
+
+.item-price {
+  font-size: 20px;
+}
