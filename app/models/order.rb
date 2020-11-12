@@ -17,4 +17,8 @@ class Order < ApplicationRecord
     発送済み: 4
   }
 
+  def self.search_for(content)
+    Order.joins(:customer).where("last_name LIKE ? OR first_name LIKE ?", "%#{content}%", "%#{content}%")
+  end
+
 end

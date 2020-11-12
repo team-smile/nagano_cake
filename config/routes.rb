@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'searches/search'
+  
   devise_for :admin, controllers: {
     sessions: 'admin/sessions'
   }
