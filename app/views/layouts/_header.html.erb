@@ -30,7 +30,7 @@
         <% if admin_signed_in? %>
           <div class="search-form text-right">
             <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
-              <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order"}) %>
+              <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order", "ジャンル" => "genre"}) %>
               <%= f.text_field :content %>
               <%= f.submit 'Search', class: "btn btn-primary" %>
             <% end %>

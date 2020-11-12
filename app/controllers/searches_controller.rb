@@ -6,8 +6,10 @@ class SearchesController < ApplicationController
       @records = Customer.search_for(@content)
     elsif @model == "item"
       @records = Item.search_for(@content)
-    # else
-    #   @records = Order.search_for(@content)
+    elsif @model == "order"
+      @records = Order.search_for(@content)
+    elsif @model == "genre"
+      @records = Genre.search_for(@content)
     end
   end
 end
