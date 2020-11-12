@@ -1,24 +1,51 @@
-# README
+# 長野ケーキ　ECサイト
+## DWC・チーム開発（4名） 　
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+### ケーキを購入できるECサイト
 
-Things you may want to cover:
+## 主な機能
+1．ユーザー登録
+2．ログイン・ログアウト
+3．カート
+4．商品一覧
+5．商品検索
+6．マイページ
+7．購入履歴一覧・削除
+8．パスワード再設定
 
-* Ruby version
+## 開発期間
+2020/10/27~2020/11/14(18日)
 
-* System dependencies
+## 開発環境
+統合開発環境: AWS cloud9
+開発言語: Ruby 2.6.3
+フレームワーク: Rails 5.0.7
 
-* Configuration
+## ECサイト 公開期間外用：一部サンプル画像
+1、ホーム 画面
+home.jpg
+　
 
-* Database creation
+2、商品一覧 画面
+productList.jpg
+　
 
-* Database initialization
+3、商品詳細 画面
+productDetails.jpg
+　
 
-* How to run the test suite
+4、ユーザー新規登録 画面
+createUser.jpg
+　
 
-* Services (job queues, cache servers, search engines, etc.)
+5、カート 画面
+cart.jpg
+　
 
-* Deployment instructions
+6、宛先選択 画面
+destination.jpg
+　
 
-* ...
+7、商品履歴 画面
+purchaseHistory.jpg
