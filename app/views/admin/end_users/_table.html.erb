@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <td>会員ID</td>
+      <td>氏名</td>
+      <td>メールアドレス</td>
+      <td>ステータス</td>
+    </tr>
+  </thead>
+  <% end_users.each do |end_user| %>
+  <tbody>
+    <tr>
+      <td><%= end_user.id %></td>
+      <td>
+        <%= link_to admin_end_user_path(end_user) do %>
+        <%= end_user.last_name %><%= end_user.first_name %>
+        <% end %>
+      </td>
+      <td><%= end_user.email %></td></td>
+      <td><%= end_user.is_deleted == true ? '退会済':'有効' %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
