@@ -1,6 +1,6 @@
 <div class="row">
   <h3>登録情報編集</h3>
-  <%= form_with model: @customer, url: edit_customer_password_path(current_customer), method: :patch, local: true do |f| %>
+  <%= form_with model: @customer, url: end_user_path(current_customer), method: :patch, local: true do |f| %>
     <%= render "public/shared/error_messages", resource: current_customer %>
 
     <div class="form-group">

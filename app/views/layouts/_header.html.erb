@@ -18,6 +18,14 @@
             <li><%= link_to ' 注文履歴一覧', admin_orders_path %></li>
             <li><%= link_to ' ジャンル一覧', admin_genres_path %></li>
             <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+            <div class="row">
+            <div class="search-form text-right">
+              <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
+                <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order", "ジャンル" => "genre"}) %>
+                <%= f.text_field :content %>
+                <%= f.submit 'Search', class: "btn btn-primary" %>
+              <% end %>
+            </div>
           <% else %>
             <li><%= link_to ' About', about_path %></li>
             <li><%= link_to ' 商品一覧', items_path %></li>
@@ -26,17 +34,7 @@
           <% end %>
         </ul>
       </div>
-      <div class="row">
-        <% if admin_signed_in? %>
-          <div class="search-form text-right">
-            <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
-              <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order", "ジャンル" => "genre"}) %>
-              <%= f.text_field :content %>
-              <%= f.submit 'Search', class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      
     </nav>
   </div>
 </header>

@@ -1,4 +1,7 @@
 class Admin::EndUsersController < ApplicationController
+  
+  before_action :authenticate_admin!
+  
   def index
     @end_users = Customer.page(params[:page]).order("id ASC")
   end
