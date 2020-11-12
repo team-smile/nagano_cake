@@ -6,4 +6,8 @@ class Item < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :genre, optional: true
   attachment :image
+  
+  def self.search_for(content)
+    Item.where("name LIKE ?", "%" + content + "%")
+  end
 end
