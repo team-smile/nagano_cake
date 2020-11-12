@@ -12,7 +12,14 @@ class Customer < ApplicationRecord
   validates :is_deleted, inclusion: [true, false]
   validates :telphone_number, :postal_code, numericality: {only_integer: true}
 
+  
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
+
   def self.search_for(content)
     Customer.where("last_name LIKE ? OR first_name LIKE ?", "%#{content}%", "%#{content}%")
   end
+
 end
