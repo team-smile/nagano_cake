@@ -7,10 +7,15 @@
   margin-bottom: 80px;
 }
 
-// 商品一覧画面での新規投稿画面遷移用ボタン
+// 商品一覧画面
 .new-botton {
   color: gray;
   float: right;
+}
+
+.admin-item-link {
+  text-decoration: none;
+  color: gray;
 }
 
 // 商品新規投稿・編集画面のフォーム欄
@@ -31,4 +36,3 @@
 .item-form-introduction {
   width: 250px;
 }
-
