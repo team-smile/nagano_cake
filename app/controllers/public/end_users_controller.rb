@@ -16,7 +16,6 @@ class Public::EndUsersController < ApplicationController
 
   def withdraw
     @customer = Customer.find(current_customer.id)
-    # binding.pry
     @customer.update(deleted_params)
     redirect_to root_path
   end

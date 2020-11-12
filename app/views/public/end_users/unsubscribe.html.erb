@@ -2,6 +2,8 @@
 <p>退会すると、会員登録情報や</br>これまでの購入履歴が閲覧できなくなります。</br>退会する場合は、「退会する」をクリックしてください。</p>
 
 
+<%= link_to "退会しない", root_path %>
+
 <%= form_with model:@customer, url: end_users_withdraw_path, method: :patch, local:true do |f| %>
   <%= f.hidden_field:is_deleted, value:1 %>
   <%= f.submit "退会する" %>
