@@ -4,26 +4,39 @@
       <li><%= link_to ' Nagano Cake', root_path, class: 'glyphicon glyphicon-home home' %></li>
     </nav>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <% if customer_signed_in? %>
-          <li class="welcome-message">ようこそ<%= current_customer.last_name %>さん！</li>
-          <li><%= link_to ' マイページ', end_users_my_page_path(current_customer) %></li>
-          <li><%= link_to ' 商品一覧', items_path %></li>
-          <li><%= link_to ' カート', cart_items_path %></li>
-          <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li>
-        <% elsif admin_signed_in? %>
-          <li><%= link_to ' 商品一覧', admin_items_path %></li>
-          <li><%= link_to ' 会員一覧', admin_end_users_path %></li>
-          <li><%= link_to ' 注文履歴一覧', admin_orders_path %></li>
-          <li><%= link_to ' ジャンル一覧', admin_genres_path %></li>
-          <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to ' About', about_path %></li>
-          <li><%= link_to ' 商品一覧', items_path %></li>
-          <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
-          <li><%= link_to ' ログイン', new_customer_session_path %></li>
+      <div class="row">
+        <ul class="nav navbar-nav navbar-right">
+          <% if customer_signed_in? %>
+            <li class="welcome-message">ようこそ<%= current_customer.last_name %>さん！</li>
+            <li><%= link_to ' マイページ', end_users_my_page_path(current_customer) %></li>
+            <li><%= link_to ' 商品一覧', items_path %></li>
+            <li><%= link_to ' カート', cart_items_path %></li>
+            <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete %></li>
+          <% elsif admin_signed_in? %>
+            <li><%= link_to ' 商品一覧', admin_items_path %></li>
+            <li><%= link_to ' 会員一覧', admin_end_users_path %></li>
+            <li><%= link_to ' 注文履歴一覧', admin_orders_path %></li>
+            <li><%= link_to ' ジャンル一覧', admin_genres_path %></li>
+            <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to ' About', about_path %></li>
+            <li><%= link_to ' 商品一覧', items_path %></li>
+            <li><%= link_to ' 新規登録', new_customer_registration_path %></li>
+            <li><%= link_to ' ログイン', new_customer_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="row">
+        <% if admin_signed_in? %>
+          <div class="search-form text-right">
+            <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
+              <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order", "ジャンル" => "genre"}) %>
+              <%= f.text_field :content %>
+              <%= f.submit 'Search', class: "btn btn-primary" %>
+            <% end %>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </nav>
   </div>
 </header>
