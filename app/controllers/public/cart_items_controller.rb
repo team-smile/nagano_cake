@@ -21,6 +21,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = @customer.cart_items
     # 初期値を指定する（数字であることを表すため）
     @sum = 0
+    @rate = 1.1
   end
 
   def update
