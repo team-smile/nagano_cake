@@ -28,9 +28,8 @@
   margin-top: 20px;
 }
 
-
-.total-price {
-  margin: auto;
+.title {
+  text-align: center;
 }
 
 // Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
@@ -118,4 +117,51 @@ body {
 
 .item-price {
   font-size: 20px;
+}
+
+// テーブルタグ
+table {
+  border-collapse: collapse;
+  width: 1000px;
+  font-size: 12px;
+  margin: auto;
+  text-align: center;
+}
+table th {
+  color: black;
+  background-color: lightgray;
+  padding: 10px;
+}
+table td {
+  color: black;
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+// カート内商品
+.several-buttons {
+  margin: 70px auto auto 10px;
+}
+
+.info-button {
+  margin-top: 70px;
+}
+
+.all-delete {
+  margin: 50px 0 auto 900px;
+}
+
+.total-price {
+  margin: auto;
+}
+
+// 注文確認
+.confirm-info {
+  margin: auto;
+}
+
+.thanks_message {
+  text-align: center;
+  margin-top: 200px;
 }

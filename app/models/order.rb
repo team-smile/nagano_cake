@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :customer
+  validates :postal_code, :address, :name, presence: true
 
 
   enum payment_method: {

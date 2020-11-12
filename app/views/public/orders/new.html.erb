@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
-      <h2>注文情報入力</h2>
+      <h2 class="title"><b>注文情報入力</b><i class="fas fa-info-circle"></i></h2>
       <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
         <h4><b>支払い方法</b></h4>
           <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
@@ -20,7 +20,7 @@
           <%= f.label :登録済住所から選択 %>
         </p>
         <p>
-          <%= f.collection_select :id, @addresses, :id, :ordered_address, include_blank: '下記からお選び下さい' %>
+          <%= f.collection_select :id, @addresses, :id, :ordered_address %>
         </p>
         <p>
           <%= f.radio_button :order, "2" %>
