@@ -1,0 +1,22 @@
+<h1>配送先編集</h1>
+
+<table>
+  
+  <%= form_with model:@address, local:true do |f| %>
+  <tr>
+    <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
+    <td><%= f.text_field :postal_code %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :"住所" %></td>
+    <td><%= f.text_field :address %></td>
+  <tr>
+  </tr>
+    <td><%= f.label :"宛名" %></td>
+    <td><%= f.text_field :name %></td>
+  <tr>
+    <td><%= f.submit "編集する" %></td>
+  </tr>
+  <% end %>
+  
+</table>
