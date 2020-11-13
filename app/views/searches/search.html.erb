@@ -1,0 +1,13 @@
+<% if @model == 'customer' %>
+	<h3>会員名 "<%= @content %>" の検索結果</h3>
+  <%= render 'admin/end_users/table', end_users: @records %>
+<% elsif @model == 'item' %>
+	<h3>商品名 "<%= @content %>" の検索結果</h3>
+  <%= render 'admin/items/table', items: @records %>
+<% elsif @model == 'order' %>
+  <h3>購入者 "<%= @content %>" の検索結果</h3>
+<%= render 'admin/orders/table', orders: @records %>
+<% else %>
+  <h3>ジャンル "<%= @content %>" の検索結果</h3>
+  <%= render 'admin/genres/table', genres: @records %>
+<% end %>

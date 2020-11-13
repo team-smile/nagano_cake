@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   belongs_to :customer
+  validates :postal_code, :address, :name, presence: true
 
 
   enum payment_method: {
@@ -15,5 +16,9 @@ class Order < ApplicationRecord
     発送準備中: 3,
     発送済み: 4
   }
+
+  def self.search_for(content)
+    Order.joins(:customer).where("last_name LIKE ? OR first_name LIKE ?", "%#{content}%", "%#{content}%")
+  end
 
 end
