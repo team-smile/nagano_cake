@@ -3,11 +3,6 @@
     <div class="row">
       <div class="col-lg-11">
         <h2 class="title"><b>ショッピングカート</b><i class="fas fa-shopping-cart"></i></h2>
-        <div class="container">
-          <% if flash[:notice] %>
-            <p id="notice" style="color: #00ff7f;"><%= notice %></p>
-          <% end %>
-        </div>
         <% if @cart_items.present? %>
         <table class="table-data" border="1">
           <thead>
