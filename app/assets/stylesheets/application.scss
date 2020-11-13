@@ -42,8 +42,9 @@ body {
 
 .welcome {
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 20px;
+  font-weight: bold;
 }
 
 .title {
@@ -92,7 +93,7 @@ body {
 
 .genre-index {
   width: 80%;
-  border: 10px double #444444;
+  border: 3px solid #444444;
 }
 
 .genre-index1, .genre-index2 {
@@ -116,7 +117,7 @@ body {
 }
 
 // 商品一覧（顧客）
-.image {
+.index-image {
   margin: 10px 15px 0 0;
 }
 
@@ -267,3 +268,25 @@ footer {
 .footer-text {
   color: #0066FF;
 }
+
+// トップページJS
+#slide-js {
+  height: 420px;
+  width: 800px;
+}
+
+.image1 {
+  background-image: url(image1.jpg);
+}
+.image2 {
+  background-image: url(image2.jpg);
+}
+.image3 {
+  background-image: url(image3.jpg);
+}
+.image4 {
+  background-image: url(image4.jpg);
+}
+.image5 {
+  background-image: url(image5.jpg);
+} 
