@@ -42,6 +42,31 @@ body {
   padding: 15px 25px 0 0;
 }
 
+
+// 鈴木追加分
+
+.admin-login-form{
+  display:flex;
+  justify-content:center;
+}
+
+.admin-login-title{
+  padding:30px 0px;
+}
+
+.admin-form-input{
+  padding:10px;
+  margin:0 auto;
+}
+
+.admin_login_button{
+  display:flex;
+  justify-content:center;
+  margin:30px;
+}
+
+// 鈴木追加分
+
 // ジャンル検索機能
 .genre-search {
   margin-top: 20px;
@@ -165,3 +190,4 @@ table td {
   text-align: center;
   margin-top: 200px;
 }
+
