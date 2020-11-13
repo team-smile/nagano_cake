@@ -16,7 +16,7 @@
             <div class="item-intro"><%= @item.introduction %></div>
             <h3 class="item-price"><%= addTax(@item.price,@rate) %></h3>
             <% if @item.is_active == true %>
-              <%# if @item.genre.is_active == true %>
+              <% if @item.genre.is_active == true %>
                 <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
                   <%= f.select :amount, options_for_select((1..30).to_a), include_blank: "個数選択" %>
                   <%= f.hidden_field :item_id, :value => @item.id %>
@@ -24,9 +24,9 @@
                     <i class="fas fa-shopping-cart"></i>
                   <% end %>
                 <% end %>
-                <%# else %>
-                  <!--<h3>売切れ</h3>-->
-                <%# end %>
+                <% else %>
+                  <h3>売切れ</h3>
+                <% end %>
             <% else %>
               <h3>売切れ</h3>
             <% end %>

@@ -1,6 +1,7 @@
 <div class="item-count">全<%= items.count %>件</div>
   <div class="item-lists">
     <% @items.each do |item| %>
+      <%# if item.genre.is_active == true && item.is_active == true %>
       <div class="col-2 ">
         <div class="card-image">
           <figure class="image">
@@ -16,5 +17,6 @@
           <div class="item-price">¥<%= item.price.to_s(:delimited) %></div>
         </div>
       </div>
+      <%# end %> 
     <% end %>
   </div>

@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
     else
       @cart_item.save
     end
-    redirect_to :cart_items, notice: '商品をカートに追加しました。'
+    redirect_to :cart_items
   end
 
   def index

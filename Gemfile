@@ -62,3 +62,4 @@ gem 'payjp'
 gem "pry-rails"
 gem 'kaminari','~> 1.2.1'
 gem "pry-nav"
+gem 'jp_prefecture'
