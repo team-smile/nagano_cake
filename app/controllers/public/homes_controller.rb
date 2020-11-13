@@ -1,6 +1,5 @@
 class Public::HomesController < ApplicationController
   def top
-    # @random = Item.order("RANDOM()").limit(3)
     @genres = Genre.where(is_active: true)
     @items = []
     @genres.each do |genre|
@@ -10,6 +9,7 @@ class Public::HomesController < ApplicationController
         end
       end
     end
+  # @random = Item.order("RANDOM()").limit(3)
   end
 
   def about
