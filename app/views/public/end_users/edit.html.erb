@@ -1,41 +1,48 @@
 <div class="row">
-  <h3>登録情報編集</h3>
+  <h2 class="mypage-edit"><b>登録情報編集 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></b></h2>
+  
+  <div>
   <%= form_with model: @customer, url: end_user_path(current_customer), method: :patch, local: true do |f| %>
     <%= render "public/shared/error_messages", resource: current_customer %>
-
+    <div  class="profile-edit">
     <div class="form-group">
       <label>名前   </label>
-        <%= f.label :last_name, "（姓）" %>
-          <%= f.text_field :last_name %>
-        <%= f.label :first_name, "（名）" %>
-          <%= f.text_field :first_name %>
+      <label>フリガナ　　　</label>
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+      <%= f.label :address, "住所" %>
+      <%= f.label :telphone_number, "電話番号（ハイフンなし）" %>
     </div>
+    
     <div class="form-group">
-        <label>フリガナ　　　</label>
-          <%= f.label :last_name_kana, "セイ" %>
-            <%= f.text_field :last_name_kana %>
-          <%= f.label :first_name_kana, "カナ" %>
-            <%= f.text_field :first_name_kana %>
+      <%= f.label :last_name, "（姓）" %>
+      <%= f.label :last_name_kana, "（セイ）" %>
     </div>
-    <div class="field">
-        <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-          <%= f.text_field :postal_code %>
-      </div>
-      <div class="form-group">
-        <%= f.label :address, "住所" %>
-          <%= f.text_field :address %>
-      </div>
-      <div class="form-group">
-        <%= f.label :telphone_number, "電話番号（ハイフンなし）" %>
-          <%= f.text_field :telphone_number %>
-      </div>
-      <div class="actions">
-        <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
-      </div>
+    
+    <div class="form-group">
+      <%= f.text_field :last_name %> 
+      <%= f.text_field :last_name_kana %> 
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.text_field :postal_code %>
+      <%= f.text_field :address %>
+      <%= f.text_field :telphone_number %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :first_name, "（名）" %>
+      <%= f.label :first_name_kana, "（メイ）" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name_kana %>
+    </div>
+    </div>
+      
+    <div class="edit-buttons">
+      <p><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></p>
+      <p><%= link_to '退会する', end_users_unsubscribe_path, class: "btn btn-danger" %></p>
+    </div>
+    
   <% end %>
-  <%= link_to '退会する', end_users_unsubscribe_path, class: "btn btn-danger" %>
-</div>
+  
