@@ -1,25 +1,23 @@
-<h1>配送先登録/一覧</h1>
+<h2><b>配送先登録 / 一覧 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></b></h2>
 
 
-<table class="address-input-form">
-<%= form_with model:@address, local:true do |f| %>
-  <tr>
-    <td><%= f.label :"郵便番号(ハイフンなし)" %></td>
-    <td><%= f.text_field :postal_code %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :"住所" %></td>
-    <td><%= f.text_field :address %></td>
-  </tr>
-  <tr>
-    <td><%= f.label :"宛名" %></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit "登録する", class: "btn btn-success" %></td>
-  </tr>
+<div>
+<%= form_with model:@address,  class:"address-input", local:true do |f| %>
+  <div class="address-input-form">
+    <div><%= f.label :"郵便番号(ハイフンなし)" %></div>
+    <div><%= f.label :"住所" %></div>
+    <div><%= f.label :"宛名" %></div>
+  </div>
+  <div class="address-input-form">
+    <div><%= f.text_field :postal_code %></div>
+    <div><%= f.text_field :address, class:"size-input-address" %></div>
+    <div><%= f.text_field :name %></div>
+  </div>
+  <div class="address-input-button">
+    <div><%= f.submit "登録する", class: "btn btn-success" %></div>
+  </div>
 <% end %>
-</table>
+</div>
 
 <table class="address-index">
   <tr>

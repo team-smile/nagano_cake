@@ -1,44 +1,47 @@
 <div class="row">
-  <h3>マイページ</h3>
+  <h2 class="mypage"><b>マイページ <span class="glyphicon glyphicon-user" aria-hidden="true"></span></b></h2>
   <p><strong>登録情報</strong>
     <%= link_to '編集する', edit_end_user_path(current_customer), class: "btn btn-primary" %>
     <%= link_to 'パスワードを変更する', edit_customer_password_path(current_customer), class: "btn btn-primary" %>
   </p>
-  <table border="1" style="border-collapse: collapse">
+  
+  <table class="mypage-form">
     <tr>
-      <td>氏名</td>
-      <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td>
+      <th>氏名</th>
+      <td class="mypage-form-box"><%= current_customer.last_name %>　<%= current_customer.first_name %></td>
     </tr>
     <tr>
-      <td>カナ</td>
-      <td><%= current_customer.last_name_kana %>　<%= current_customer.first_name_kana %></td>
+      <th>カナ</th>
+      <td class="mypage-form-box"><%= current_customer.last_name_kana %>　<%= current_customer.first_name_kana %></td>
     </tr>
     <tr>
-      <td>郵便番号</td>
-      <td><%= current_customer.postal_code %></td>
+      <th>郵便番号</th>
+      <td class="mypage-form-box"><%= current_customer.postal_code %></td>
     </tr>
     <tr>
-      <td>住所</td>
-      <td><%= current_customer.address %></td>
+      <th>住所</th>
+      <td class="mypage-form-box"><%= current_customer.address %></td>
     </tr>
     <tr>
-      <td>電話番号</td>
-      <td><%= current_customer.telphone_number %></td>
+      <th>電話番号</th>
+      <td class="mypage-form-box"><%= current_customer.telphone_number %></td>
     </tr>
     <tr>
-      <td>メールアドレス</td>
-      <td><%= current_customer.email %></td>
+      <th>メールアドレス</th>
+      <td class="mypage-form-box"><%= current_customer.email %></td>
     </tr>
   </table>
-  <div>
-    <p><strong>配送先</strong>
-    <%= link_to '一覧を見る', addresses_path(current_customer), class: "btn btn-primary"  %>
-    </p>
+  
+<div class="mypage-bottom">
+  <div class="mypage-bottom-box">
+    <p><strong>配送先</strong></p>
+    <p><strong>注文履歴</strong></p>
   </div>
   <div>
-    <p><strong>注文履歴</strong>
-    <%= link_to '一覧を見る', orders_path(current_customer), class: "btn btn-primary" %>
-    </p>
+    <p><%= link_to '一覧を見る', addresses_path(current_customer), class: "btn btn-primary"  %></p>
+    <p><%= link_to '一覧を見る', orders_path(current_customer), class: "btn btn-primary" %></p>
   </div>
+</div>
+
 </div>
 
