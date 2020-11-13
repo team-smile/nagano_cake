@@ -8,6 +8,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @rate = 1.1
+
     @order = Order.new(
       postal_code: params[:order][:postal_code],
       customer_id: current_customer.id,
@@ -23,7 +25,7 @@ class Public::OrdersController < ApplicationController
       @cart_items.each do |cart_item|
         @order_details = @order.order_details.new
         @order_details.item_id = cart_item.item.id
-        @order_details.price = cart_item.item.price * 1.1
+        @order_details.price = cart_item.item.price * @rate
         @order_details.amount = cart_item.amount
         @order_details.save
         current_customer.cart_items.destroy_all
@@ -58,6 +60,8 @@ class Public::OrdersController < ApplicationController
       new_address.postal_code = @order.postal_code
       new_address.address = @order.address
       new_address.save
+    else
+      render "confirm"
     end
   end
 
