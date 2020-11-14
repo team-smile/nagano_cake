@@ -40,7 +40,7 @@ createUser.jpg
 　
 
 5.カート 画面
-cart.jpg
+<img width="1440" alt="カート" src="https://user-images.githubusercontent.com/69775483/99141539-a546ee00-268f-11eb-821e-9960b9c16c97.png">
 　
 
 6.宛先選択 画面
