@@ -1,20 +1,26 @@
-<h2><b>配送先編集 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></span></b></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2><b>配送先編集 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></span></b></h2>
 
-<div>
-  <%= form_with model:@address,  class:"address-input", local:true do |f| %>
-  <div class="address-input-form">
-    <div><%= f.label :"郵便番号(ハイフンなし)" %></div>
-    <div><%= f.label :"住所" %></div>
-    <div><%= f.label :"宛名" %></div>
+      <div>
+        <%= form_with model:@address,  class:"address-input", local:true do |f| %>
+        <div class="address-input-form">
+          <div><%= f.label :"郵便番号(ハイフンなし)" %></div>
+          <div><%= f.label :"住所" %></div>
+          <div><%= f.label :"宛名" %></div>
+        </div>
+
+        <div class="address-input-form">
+          <div><%= f.text_field :postal_code %></div>
+          <div><%= f.text_field :address, class:"size-input-address" %></div>
+          <div><%= f.text_field :name %></div>
+        </div>
+        <div class="address-input-button">
+          <div><%= f.submit "編集する", class: "btn btn-primary" %></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  
-  <div class="address-input-form">
-    <div><%= f.text_field :postal_code %></div>
-    <div><%= f.text_field :address, class:"size-input-address" %></div>
-    <div><%= f.text_field :name %></div>
-  </div>
-  <div class="address-input-button">
-    <div><%= f.submit "編集する", class: "btn btn-primary" %></div>
-  </div>
-  <% end %>
 </div>
