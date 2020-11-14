@@ -28,7 +28,7 @@
 　
 
 2.商品一覧 画面
-<img width="1779" alt="商品一覧画面" src="https://user-images.githubusercontent.com/69783328/99141650-c0fec400-2690-11eb-9a26-73daa764ee8a.png">
+productList.jpg
 　
 
 3.商品詳細 画面
@@ -40,13 +40,12 @@ createUser.jpg
 　
 
 5.カート 画面
-<img width="1440" alt="カート" src="https://user-images.githubusercontent.com/69775483/99141539-a546ee00-268f-11eb-821e-9960b9c16c97.png">
-　
+<img width="1440" alt="カート" src="https://user-images.githubusercontent.com/69775483/99141635-94e34300-2690-11eb-9626-18dc76aa7eb8.png">
+
 
 6.宛先選択 画面
-<img width="1440" alt="宛先選択" src="https://user-images.githubusercontent.com/69775483/99141560-d1fb0580-268f-11eb-94d2-99e4b8678baf.png">
+<img width="1440" alt="宛先選択" src="https://user-images.githubusercontent.com/69775483/99141623-767d4780-2690-11eb-964a-8b9b2e79b211.png">
 
 
 7.注文履歴 画面
-<img width="1440" alt="注文履歴" src="https://user-images.githubusercontent.com/69775483/99141524-6ca71480-268f-11eb-9559-1c079d02eb7c.png">
-
+<img width="1439" alt="注文履歴" src="https://user-images.githubusercontent.com/69775483/99141647-b5130200-2690-11eb-8d68-28e3128b1d9d.png">
