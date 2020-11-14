@@ -51,9 +51,9 @@ body {
 }
 
 // Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
-body {
-  padding-top: 120px;
-}
+// body {
+//   padding-top: 120px;
+// }
 
 .welcome-message {
   color: white;
@@ -64,11 +64,8 @@ body {
   width:100%;
 }
 
-header{
-  height:140px;
-  
-}
 
+// デザインコピペゾーン
 
 .back-design{
    background-color   : #ffffff;
@@ -263,6 +260,7 @@ header {
   top: 0;
   background-position: center top;
   background-size: contain;
+  height:140px;
 }
 
 .header-name {
@@ -312,4 +310,13 @@ footer {
 
 .footer-text {
   color: #0066FF;
+}
+
+// 文字フォント
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Kosugi+Maru&family=Lato&family=Montserrat&family=Open+Sans&family=Roboto&family=Shadows+Into+Light&display=swap');
+
+.font{
+  
+font-family: 'Kosugi Maru', sans-serif;
+
 }
