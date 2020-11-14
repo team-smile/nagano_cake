@@ -48,4 +48,5 @@ destination.jpg
 　
 
 7.注文履歴 画面
-purchaseHistory.jpg
+<img width="1440" alt="注文履歴" src="https://user-images.githubusercontent.com/69775483/99141524-6ca71480-268f-11eb-9559-1c079d02eb7c.png">
+
