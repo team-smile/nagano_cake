@@ -108,7 +108,7 @@ footer{
 
 
 
-// 管理画面
+// ログイン画面
 
 .new_admin{
   display:flex;
@@ -135,6 +135,18 @@ footer{
   display:flex;
   justify-content:center;
   margin:30px;
+}
+
+.not-registration{
+  display:flex;
+  justify-content:center;
+  position:relative;
+  right:50px;
+}
+
+.right-position{
+  position:relative;
+  right:30px;
 }
 
 
@@ -385,3 +397,80 @@ input[type="password"] {
         width: 130px;
         height: 25px;
     }
+    
+// マイページ
+
+.mypage{
+  padding:30px;
+}
+
+.mypage-form{
+  display:flex;
+  margin:10px 0px;
+}
+
+.mypage-form-box{
+  text-align:left;
+}
+
+.mypage-bottom{
+  display:flex;
+}
+
+.mypage-bottom-box p:nth-child(1){
+  margin-bottom:25px;
+}
+
+// マイページ編集画面
+
+.mypage-edit{
+  padding:30px;
+}
+
+.profile-edit{
+display:flex;
+}
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.edit-buttons{
+  display:flex;
+}
+
+.edit-buttons > p{
+  margin:0px 50px;
+}
+
+// 退会画面
+
+.withdraw{
+  margin:50px auto;
+}
+
+.withdraw-confirm{
+  display:flex;
+  justify-content:center;
+}
+
+.withdraw-confirm-text{
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  margin:30px 0px;
+}
+
+.withdraw-buttons{
+  display:flex;
+  justify-content:center;
+}
+
+.no-withdraw{
+  margin-right:20px;
+}
+
+.yes-withdraw{
+  margin-left:20px;
+}
