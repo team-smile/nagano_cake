@@ -1,0 +1,95 @@
+<header class="navbar">
+  <div>
+    <nav class='nav navbar-nav navbar-left' >
+      <li><%= link_to image_tag('ながのCAKE.png',width:"110px"), root_path %></li>
+    </nav>
+    <nav>
+      <div class="row">
+        <ul class="nav navbar-nav navbar-right">
+          <% if customer_signed_in? %>
+            <li class="welcome-message">ようこそ<%= current_customer.last_name %>さん！</li>
+            <li>
+              <%= link_to end_users_my_page_path(current_customer), class: "header-link font" do %>
+                <i class="far fa-smile header-icon-5"></i></br>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path, class: "header-link font" do %>
+                <i class="fas fa-birthday-cake header-icon-4"></i></br>商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to cart_items_path, class: "header-link font" do %>
+                <i class="fas fa-shopping-cart header-icon-3"></i></br>カート
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_customer_session_path, method: :delete, class: "header-link font" do %>
+                <i class="fas fa-sign-out-alt header-icon-5"></i></br>ログアウト
+              <% end %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li>
+              <%= link_to admin_items_path, class: "header-link font" do %>
+                <i class="fas fa-birthday-cake header-icon-4"></i></br>商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_end_users_path, class: "header-link font" do %>
+                <i class="fas fa-user-friends header-icon-4"></i></br>会員一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_orders_path, class: "header-link font" do %>
+                <i class="fas fa-money-check-alt header-icon-6"></i></br>注文履歴一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to admin_genres_path, class: "header-link font" do %>
+                <i class="fas fa-gift header-icon-6"></i></br>ジャンル一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete, class: "header-link font" do %>
+                <i class="fas fa-sign-out-alt header-icon-5"></i></br>ログアウト
+              <% end %>
+            </li>
+            <div class="row">
+              <div class="search-form text-right">
+                <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
+                  <%= f.select :model, options_for_select({"商品" => "item", "会員" => "customer", "購入者" => "order", "ジャンル" => "genre"}) %>
+                  <%= f.text_field :content, :placeholder => "search" %>
+                  <%= f.button :type => "submit", class: "btn btn-primary" do %>
+                    <i class="fas fa-search"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <li>
+              <%= link_to about_path, class: "header-link font" do%>
+                <i class="fas fa-home header-icon-3 "></i></br>About
+              <% end %>
+            </li>
+            <li>
+              <%= link_to items_path, class: "header-link font" do %>
+                <i class="fas fa-birthday-cake header-icon-4"></i></br>商品一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_registration_path, class: "header-link font" do %>
+                <i class="fas fa-pen-alt header-icon-4"></i></br>新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_customer_session_path, class: "header-link font" do %>
+                <i class="fas fa-sign-in-alt header-icon-4"></i></br>ログイン
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+    </nav>
+  </div>
+</header>

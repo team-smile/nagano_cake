@@ -1,2 +1,59 @@
-<h1>Admin::EndUsers#edit</h1>
-<p>Find me in app/views/admin/end_users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-9">
+      <h2><b><%= @end_user.last_name %><%= @end_user.first_name %>さんの会員情報編集</b></h2>
+
+      <% if @end_user.errors.any? %>
+        <h3><%= @end_user.errors.count %> error prohibited this obj from being saved: </h3>
+          <ul>
+            <% @end_user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+      <%= form_with model:@end_user, url: admin_end_user_path(@end_user), local:true do |f| %>
+        <table>
+          <tr>
+            <td><%= f.label :"顧客ID" %></td>
+            <td><%= @end_user.id %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"氏名" %></td>
+            <td><%= f.text_field :last_name %>  <%= f.text_field :first_name %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"フリガナ" %></td>
+            <td><%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"郵便番号" %></td>
+            <td><%= f.text_field :postal_code %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"会員" %></td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"電話番号" %></td>
+            <td><%= f.telephone_field :telphone_number %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"メールアドレス" %></td>
+            <td><%= f.email_field :email %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :"会員ステータス" %></td>
+            <td>
+              <%= f.radio_button :is_deleted, :false %>
+              <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+              <%= f.radio_button :is_deleted, :true %>
+              <%= f.label :is_deleted, "退会済み", {value: :true, style: "display: inline-block;"} %>
+            </td>
+          </tr>
+        </table>
+        <%= f.submit "変更を保存する" %>
+      <% end %>
+    </div>
+  </div>
+</div>

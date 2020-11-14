@@ -1,0 +1,39 @@
+<div class="col-xs-4">
+  <div class="form-group">
+    <% if item.image.present? %>
+      <%= attachment_image_tag @item, :image, format: "jpeg", size: "250x200", id: "img-edit" %>
+    <% end %>
+    <%= f.attachment_field :image, type: 'file', id: "img-file" %>
+  </div>
+</div>
+
+<div class="col-xs-6">
+  <div class="form-group">
+    <%= f.label :name, "商品名", class: "item-label" %>
+    <%= f.text_field :name, class: "item-form" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction, "商品説明", class: "item-label-introduction" %>
+    <%= f.text_area :introduction, rows: 8, class: "item-form-introduction" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :genre_id, "ジャンル", class: "item-label" %>
+    <%= f.collection_select :genre_id, Genre.where(is_active: true), :id, :name, {include_blank: "選択してください"}, {class: "item-form"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "税抜価格", class: "item-label" %>
+    <%= f.text_field :price, class: "item-form"%> 円
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "販売ステータス", class: "item-label" %>
+    <%= f.select :is_active, [["販売中", true], ["売切れ", false]], {include_blank: "選択してください"}, {class: "item-form"} %>
+    <!--「選択してください」実装完了。課題内容から、default値が初期値として問題ないものとする。-->
+  </div>
+  <% if local_assigns[:edit_flag].present? %>
+    <p class="text-right"><%= f.submit "変更を保存", class: "btn btn-primary" %></p>
+  <% else %>
+    <p class="text-right"><%= f.submit "新規登録", class: "btn btn-primary" %></p>
+  <% end %>
+</div>
+
+<div class="col-xs-2"></div>

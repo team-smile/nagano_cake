@@ -1,3 +1,30 @@
 // Place all the styles related to the public::addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.address-input{
+ margin:20px 0px;
+ display:flex;
+}
+
+.address-index{
+ margin:20px 0px;
+}
+
+.address-input-button{
+ display:flex;
+ align-items:flex-end;
+}
+
+.address-input-form > div{
+ margin:10px 20px;
+}
+
+.address-input-button > div{
+ margin:10px 20px;
+}
+
+.size-input-address{
+ width:26em;
+}

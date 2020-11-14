@@ -1,2 +1,37 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<body>
+  <div class="container">
+    <div class="top-box-show">
+    <div class="row top-box">
+      <div class="col-lg-3">
+        <%= render "genre", genres: @genres %>
+      </div>
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-lg-6">
+            <figure class="image">
+              <div class="item-image"><%= attachment_image_tag @item, :image, :size =>'350x250' %></div>
+            </figure>
+          </div>
+          <div>
+            <h2><%= @item.name %></h2>
+            <div class="item-intro"><%= @item.introduction %></div>
+            <h3 class="item-price"><%= addTax(@item.price,@rate) %></h3>
+            <% if @item.is_active == true %>
+              <%= form_with model: @cart_item, url: cart_items_path, method: :post, local: true do |f| %>
+                <%= f.select :amount, options_for_select((1..30).to_a), include_blank: "個数選択" %>
+                <%= f.hidden_field :item_id, :value => @item.id %>
+                <%= f.button :type => "submit", class: "btn btn-primary" do %>
+                  <i class="fas fa-shopping-cart"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <h3 class="sold-out">売切れ<i class="far fa-sad-tear"></i></h3>
+            <% end %>
+            <%= link_to "戻る", items_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>

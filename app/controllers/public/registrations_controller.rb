@@ -1,13 +1,22 @@
 # frozen_string_literal: true
 
-class Customers::RegistrationsController < Devise::RegistrationsController
+class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  def after_sign_up_path_for(resource)
+    items_path(current_customer)
+  end
+
+  # ↓は会員データ編集後のルート設定
+# 　def after_update_path_for(resource)
+# 　  items_path(current_user)
+# 　end
+
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+    # def new
+      # super
+    # end
 
   # POST /resource
   # def create

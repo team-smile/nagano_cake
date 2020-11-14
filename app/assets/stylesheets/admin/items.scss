@@ -1,3 +1,38 @@
 // Place all the styles related to the admin::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 各商品画面の見出し
+.item-header {
+  margin-bottom: 80px;
+}
+
+// 商品一覧画面
+.new-botton {
+  color: gray;
+  float: right;
+}
+
+.admin-item-link {
+  text-decoration: none;
+  color: gray;
+}
+
+// 商品新規投稿・編集画面のフォーム欄
+.item-label {
+  width: 100px;
+}
+
+.item-label-introduction {
+  width: 100px;
+  vertical-align: top;
+}
+
+.item-form {
+  width: 250px;
+  height: 40px;
+}
+
+.item-form-introduction {
+  width: 250px;
+}

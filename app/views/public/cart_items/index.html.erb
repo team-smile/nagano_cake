@@ -1,2 +1,59 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <h2 class="title"><b>ショッピングカート</b><i class="fas fa-shopping-cart"></i></h2>
+        <% if @cart_items.present? %>
+        <table class="table-data" border="1">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td>
+                <%= attachment_image_tag cart_item.item, :image, :size =>'100x100' %>
+                <%= cart_item.item.name %>
+              </td>
+              <td class="item-taxed_price"><%= addTax(cart_item.item.price,@rate) %></td>
+              <td>
+                <%= form_with model: cart_item, url: cart_item_path(cart_item), method: :patch, local: true do |f| %>
+                  <%= f.text_field :amount %><%= f.submit "変更", class: "btn btn-primary" %>
+                <% end %>
+              </td>
+              <td><%= addTax((cart_item.item.price * cart_item.amount),@rate) %></td>
+              <td><%= link_to "削除する", cart_item_path(cart_item), method: :delete, data: {confirm: "この商品を削除しますか？"}, class: "btn btn-danger" %></td>
+            </tr>
+            <!--カートの小計と個数と税率をかけたものを初期値0に足す-->
+            <% @sum += cart_item.item.price * cart_item.amount %>
+            <% end %>
+          </tbody>
+        </table>
+        <table class="total-price", border="1">
+          <tr>
+            <th>合計金額</th><td class="item-price">¥<%= (@sum * @rate).round %>(税込)</td>
+          </tr>
+        </table>
+        <p class="all-delete">
+          <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete, data: {confirm: "カート内商品を全て削除しますか？"}, class: "btn-sm btn-danger" %>
+        </p>
+      </div>
+      <div class="col-lg-1">
+        <div class="several-buttons">
+          <p class="cotinue-shopping"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
+          <p class="info-button"><%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %></p>
+          <% else %>
+          <h2><b>カート内商品はありません</b><i class="far fa-sad-tear"></i></h2>
+          <p class="cotinue-shopping"><%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
+</body>
