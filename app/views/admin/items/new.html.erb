@@ -1,12 +1,16 @@
 <div class="container">
-  <h1 class="item-header">商品新規登録</h1>
-  <%= render "error", item: @item %>
+  <div class="row">
+    <div class="col-lg-9">
+      <h1 class="item-header"><b>商品新規登録</b></h1>
+      <%= render "error", item: @item %>
 
-    <div class="row">
-      <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
-        <%= render "form", f: f, item: @item %>
-      <% end %>
+        <div class="row">
+          <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
+            <%= render "form", f: f, item: @item %>
+          <% end %>
+        </div>
     </div>
+  </div>
 </div>
 
 
