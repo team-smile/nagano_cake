@@ -60,8 +60,6 @@ class Public::OrdersController < ApplicationController
       new_address.postal_code = @order.postal_code
       new_address.address = @order.address
       new_address.save
-    else
-      render "confirm"
     end
   end
 
