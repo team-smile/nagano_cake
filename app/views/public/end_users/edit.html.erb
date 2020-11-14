@@ -5,38 +5,34 @@
   <%= form_with model: @customer, url: end_user_path(current_customer), method: :patch, local: true do |f| %>
     <%= render "public/shared/error_messages", resource: current_customer %>
     <div  class="profile-edit">
-    <div class="form-group">
-      <label>名前   </label>
-      <label>フリガナ　　　</label>
-      <%= f.label :email, "メールアドレス" %><br />
-      <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-      <%= f.label :address, "住所" %>
-      <%= f.label :telphone_number, "電話番号（ハイフンなし）" %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label :last_name, "（姓）" %>
-      <%= f.label :last_name_kana, "（セイ）" %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.text_field :last_name %> 
-      <%= f.text_field :last_name_kana %> 
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      <%= f.text_field :postal_code %>
-      <%= f.text_field :address %>
-      <%= f.text_field :telphone_number %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.label :first_name, "（名）" %>
-      <%= f.label :first_name_kana, "（メイ）" %>
-    </div>
-    
-    <div class="form-group">
-      <%= f.text_field :first_name %>
-      <%= f.text_field :first_name_kana %>
-    </div>
+      <div class="form-group">
+        <label>名前   </label>
+        <label>フリガナ　　　</label>
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+        <%= f.label :address, "住所" %>
+        <%= f.label :telphone_number, "電話番号（ハイフンなし）" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, "（姓）" %>
+        <%= f.label :last_name_kana, "（セイ）" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :last_name %> 
+        <%= f.text_field :last_name_kana %> 
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.text_field :postal_code %>
+        <%= f.text_field :address %>
+        <%= f.text_field :telphone_number %>
+      </div>
+      <div class="form-group">
+        <%= f.label :first_name, "（名）" %>
+        <%= f.label :first_name_kana, "（メイ）" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :first_name %>
+        <%= f.text_field :first_name_kana %>
+      </div>
     </div>
       
     <div class="edit-buttons">

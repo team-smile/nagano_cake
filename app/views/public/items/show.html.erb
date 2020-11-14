@@ -1,6 +1,7 @@
 <body>
   <div class="container">
-    <div class="row">
+    <div class="top-box-show">
+    <div class="row top-box">
       <div class="col-lg-3">
         <%= render "genre", genres: @genres %>
       </div>
@@ -11,7 +12,7 @@
               <div class="item-image"><%= attachment_image_tag @item, :image, :size =>'350x250' %></div>
             </figure>
           </div>
-          <div class="col-lg-6">
+          <div>
             <h2><%= @item.name %></h2>
             <div class="item-intro"><%= @item.introduction %></div>
             <h3 class="item-price"><%= addTax(@item.price,@rate) %></h3>
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </body>
