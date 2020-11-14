@@ -1,19 +1,2 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-9">
-      <h1 class="item-header"><b>商品新規登録</b></h1>
-      <%= render "error", item: @item %>
-
-        <div class="row">
-          <%= form_with model:@item, url:admin_items_path, local:true do |f| %>
-            <%= render "form", f: f, item: @item %>
-          <% end %>
-        </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
+<h1>Admin::Items#new</h1>
+<p>Find me in app/views/admin/items/new.html.erb</p>
