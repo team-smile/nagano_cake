@@ -7,7 +7,7 @@
       <div class="row">
         <ul class="nav navbar-nav navbar-right">
           <% if customer_signed_in? %>
-            <li class="welcome-message">ようこそ<%= current_customer.last_name %>さん！</li>
+            <li class="welcome-message"><b>ようこそ <%= current_customer.last_name %>さん！</b></li>
             <li>
               <%= link_to end_users_my_page_path(current_customer), class: "header-link font" do %>
                 <i class="far fa-smile header-icon-5"></i></br>マイページ

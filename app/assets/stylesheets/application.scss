@@ -280,7 +280,7 @@ table td {
 
 .thanks_message {
   text-align: center;
-  margin-top: 200px;
+  margin: 200px 0;
 }
 
 // ヘッダー
@@ -487,4 +487,8 @@ display:flex;
 
 .yes-withdraw{
   margin-left:20px;
+}
+
+.admin-top{
+  margin:50px 0px;
 }
