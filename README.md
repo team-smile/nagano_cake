@@ -24,7 +24,7 @@
 
 ## ECサイト　一部サンプル画像
 1.ホーム 画面
-home.jpg
+<img width="1783" alt="ホーム画面" src="https://user-images.githubusercontent.com/69783328/99141630-86952700-2690-11eb-8a10-fc2e6b559e3c.png">
 　
 
 2.商品一覧 画面
