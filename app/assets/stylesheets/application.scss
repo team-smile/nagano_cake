@@ -52,17 +52,63 @@ body {
 }
 
 // Bootstrapのnavbar-fixed-topを使用するときは、レイアウトでbody（本文）と重なるため、あわせてCSSも記述。
-body {
-  padding-top: 120px;
-}
+// body {
+//   padding-top: 120px;
+// }
 
 .welcome-message {
   color: white;
   padding: 15px 25px 0 0;
 }
 
+.container{
+  width:100%;
+}
 
-// 鈴木追加分
+
+// デザインコピペゾーン
+
+.back-design{
+   background-color   : #ffffff;
+  background-image   : radial-gradient(rgba(153, 255, 255, 0.35) 30%, transparent 33%),
+                       radial-gradient(rgba(153, 255, 255, 0.35) 30%, transparent 33%);
+  background-position: 0 0, 21px 21px;
+  background-size    : 42px 42px;
+}
+
+header{
+   background-color : #fff;
+  background-image :
+      repeating-linear-gradient(45deg,
+                                rgba(255, 255, 153, 0.62),
+                                rgba(255, 255, 153, 0.62) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px),
+      repeating-linear-gradient(315deg,
+                                rgba(255, 255, 77, 0.64),
+                                rgba(255, 255, 77, 0.64) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px);
+}
+
+footer{
+   background-color : #fff;
+  background-image :
+      repeating-linear-gradient(45deg,
+                                rgba(255, 255, 153, 0.62),
+                                rgba(255, 255, 153, 0.62) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px),
+      repeating-linear-gradient(315deg,
+                                rgba(255, 255, 77, 0.64),
+                                rgba(255, 255, 77, 0.64) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px);
+}
+
+
+
+// 管理画面
 
 .admin-login-form{
   display:flex;
@@ -84,7 +130,6 @@ body {
   margin:30px;
 }
 
-// 鈴木追加分
 
 // ジャンル検索機能
 .genre-search {
@@ -212,11 +257,11 @@ table td {
 
 // ヘッダー
 header {
-  background-color: #FFFFCC;
   position: absolute;
   top: 0;
   background-position: center top;
   background-size: contain;
+  height:140px;
 }
 
 .header-name {
@@ -258,7 +303,6 @@ footer {
   height: 120px;
   text-align: center;
   padding: 50px 0;
-  background-color: #FFFFCC;
   background-position: center bottom;
   background-size: contain;
   position: absolute;
@@ -267,6 +311,16 @@ footer {
 
 .footer-text {
   color: #0066FF;
+}
+
+
+// 文字フォント
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Kosugi+Maru&family=Lato&family=Montserrat&family=Open+Sans&family=Roboto&family=Shadows+Into+Light&display=swap');
+
+.font{
+  
+font-family: 'Kosugi Maru', sans-serif;
+
 }
 
 // トップページJS
@@ -290,3 +344,4 @@ footer {
 .image5 {
   background-image: url(image5.jpg);
 } 
+
