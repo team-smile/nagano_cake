@@ -36,7 +36,7 @@
 　
 
 4.ユーザー新規登録 画面
-createUser.jpg
+<img width="1782" alt="ユーザー新規登録画面" src="https://user-images.githubusercontent.com/69783328/99141721-7467b880-2691-11eb-8c4b-12e4611d1ef3.png">
 　
 
 5.カート 画面
