@@ -28,7 +28,7 @@
 　
 
 2.商品一覧 画面
-<img width="1783" alt="商品詳細画面" src="https://user-images.githubusercontent.com/69783328/99141672-fefbe800-2690-11eb-9832-3f46ea2e3aac.png">
+<img width="1779" alt="商品一覧画面" src="https://user-images.githubusercontent.com/69783328/99141650-c0fec400-2690-11eb-9a26-73daa764ee8a.png">
 　
 
 3.商品詳細 画面
