@@ -44,8 +44,8 @@ createUser.jpg
 　
 
 6.宛先選択 画面
-destination.jpg
-　
+<img width="1440" alt="宛先選択" src="https://user-images.githubusercontent.com/69775483/99141560-d1fb0580-268f-11eb-94d2-99e4b8678baf.png">
+
 
 7.注文履歴 画面
 <img width="1440" alt="注文履歴" src="https://user-images.githubusercontent.com/69775483/99141524-6ca71480-268f-11eb-9559-1c079d02eb7c.png">
