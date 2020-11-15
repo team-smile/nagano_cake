@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ECサイト　長野ケーキ
 ## DMMWEBCAMP　チーム開発（4名） 　
 
@@ -49,3 +50,29 @@
 
 7.注文履歴 画面
 <img width="1439" alt="注文履歴" src="https://user-images.githubusercontent.com/69775483/99141647-b5130200-2690-11eb-8d68-28e3128b1d9d.png">
+=======
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+>>>>>>> origin

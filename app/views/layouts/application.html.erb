@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <title>NaganoCake</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
-    <script src="https://kit.fontawesome.com/f71a604c74.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag('favicon.ico') %>
   </head>
+
   <body>
+<<<<<<< HEAD
     <div class="wrapper">
       <div class="container back-design">
         <%= render "layouts/header" %>
@@ -16,5 +17,8 @@
         <%= render "layouts/footer" %>
       </div>
     </div>
+=======
+    <%= yield %>
+>>>>>>> origin
   </body>
 </html>
